@@ -35,7 +35,13 @@ func getAlbumByID(c *gin.Context) {
 }
 
 func addAlbum(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, albums)
+	var newAlbum album
+	
+	if err := c.BindJSON(&newAlbum); err != nil {
+		return
+	}	
+	albums = append(albums, newAlbum)
+	c.IndentedJSON(http.StatusCreated, newAlbum)
 }
 
 func main() {
