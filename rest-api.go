@@ -1,6 +1,6 @@
 package main
 
-// import "net/http"
+import "net/http"
 import "github.com/gin-gonic/gin"
 
 type album struct {
@@ -12,16 +12,22 @@ type album struct {
 	
 }
 
-func getAllAlbums(c *gin.Context) {
-	
-	
+var albums = []album {}
 
+func getAllAlbums(c *gin.Context) {
+	if len(albums) == 0 {
+		c.IndentedJSON(http.StatusOK, gin.H{"message": "No albums found"})
+		return
+	}
+	c.IndentedJSON(http.StatusOK, albums)
 }
 
 func getAlbumByID(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, albums)	
 }
 
 func addAlbum(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, albums)
 }
 
 func main() {
