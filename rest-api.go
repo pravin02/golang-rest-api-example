@@ -23,7 +23,15 @@ func getAllAlbums(c *gin.Context) {
 }
 
 func getAlbumByID(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, albums)	
+	albumId := c.Param("id")
+	
+	for _, a := range albums {
+		if a.ID == albumId {
+			c.IndentedJSON(http.StatusOK, a)
+			return
+		}
+	}
+	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "No album found by Id "+albumId})	
 }
 
 func addAlbum(c *gin.Context) {
