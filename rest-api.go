@@ -3,7 +3,19 @@ package main
 // import "net/http"
 import "github.com/gin-gonic/gin"
 
+type album struct {
+	
+	ID string `json:"albumId"`
+	Title string `json:"title"`
+	Artist string `json:"artist"`
+	Price float64 `json:"price"`
+	
+}
+
 func getAllAlbums(c *gin.Context) {
+	
+	
+
 }
 
 func getAlbumByID(c *gin.Context) {
