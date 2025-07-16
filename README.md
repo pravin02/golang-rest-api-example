@@ -46,3 +46,7 @@ To make the executable or deployable build out of sourcde code.
 ### Output
 ![](screenshots/terminal1.PNG)
 ![](screenshots/terminal2.PNG)
+
+### Planned Enhancements:
+1. Better error Handling
+2. Generic response structure
